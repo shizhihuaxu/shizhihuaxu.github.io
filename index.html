@@ -406,6 +406,59 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-gitGettingStart"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/09/06/gitGettingStart/">git的常用方法与基本命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/09/06/gitGettingStart/" class="article-date">
+	  <time datetime="2018-09-06T07:22:56.616Z" itemprop="datePublished">2018-09-06</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/git/">git</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          配置设置全局用户名和邮箱账号123git config –global user.name "username"git config –global user.email "email"
+生成并配置ssh-key1ssh-keygen -t rsa -C &quot;your_email@example.com&quot;
+生成的 ssh-key 一般位于C盘用户文件夹下 .ssh文件夹中，若未找到，可能是此文件夹被隐藏，在文件管理器上选择查看选项，勾选隐藏的项目即可显示。
+将id_rsa...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/09/06/gitGettingStart/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-two-type-conversion"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -555,6 +608,60 @@ false
         </p>
         <p class="article-more-link">
           <a href="/2018/08/02/one-type-conversion/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-operator"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2018/08/02/operator/">toString()的一道题目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/08/02/operator/" class="article-date">
+	  <time datetime="2018-08-02T03:18:39.418Z" itemprop="datePublished">2018-08-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Object/">Object</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          123453.toString()3..toString()3...toString()//error , 3 ,error
+解析：
+​    第一个：点运算符会被优先识别为数字常量的一部分，然后才是对象属性访问符。所以  3.toString() 实际上被JS引擎解析成 (3.)toString()，显然会出现语法错误。
+​    第二个：相当于(3.).toString()，3. 为浮点数，应该是被编译为了对象，所以其实相当于 3.0.toString() == “3”
+​    第三...
+        </p>
+        <p class="article-more-link">
+          <a href="/2018/08/02/operator/#more">Read More</a>
         </p>
       
     </div>
@@ -792,7 +899,7 @@ CKFinder
 	</a>
 
       
-    <a class="article-category-link" href="/categories/js数组操作/">js数组操作</a>
+    <a class="article-category-link" href="/categories/js数组/">js数组</a>
 
       
     </div>

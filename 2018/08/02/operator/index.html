@@ -3,24 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Categories | 诗之花绪</title>
+  <title>tostring()的一道题目 | 诗之花绪</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="Object" />
   
   
   
-  <meta name="description" content="学无止境，学无止境呀">
-<meta name="keywords" content="个人技术博客，诗之花绪，前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://shizhihuaxu.github.io/categories/index.html">
+  
+  <meta name="description" content="123453.toString()3..toString()3...toString()//error , 3 ,error 解析： ​    第一个：点运算符会被优先识别为数字常量的一部分，然后才是对象属性访问符。所以  3.toString() 实际上被JS引擎解析成 (3.)toString()，显然会出现语法错误。 ​    第二个：相当于(3.).toString()，3. 为浮点数，应">
+<meta name="keywords" content="Object">
+<meta property="og:type" content="article">
+<meta property="og:title" content="toString()的一道题目">
+<meta property="og:url" content="https://shizhihuaxu.github.io/2018/08/02/operator/index.html">
 <meta property="og:site_name" content="诗之花绪">
-<meta property="og:description" content="学无止境，学无止境呀">
+<meta property="og:description" content="123453.toString()3..toString()3...toString()//error , 3 ,error 解析： ​    第一个：点运算符会被优先识别为数字常量的一部分，然后才是对象属性访问符。所以  3.toString() 实际上被JS引擎解析成 (3.)toString()，显然会出现语法错误。 ​    第二个：相当于(3.).toString()，3. 为浮点数，应">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-01T14:14:02.558Z">
+<meta property="og:updated_time" content="2018-08-02T05:17:42.964Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="学无止境，学无止境呀">
+<meta name="twitter:title" content="toString()的一道题目">
+<meta name="twitter:description" content="123453.toString()3..toString()3...toString()//error , 3 ,error 解析： ​    第一个：点运算符会被优先识别为数字常量的一部分，然后才是对象属性访问符。所以  3.toString() 实际上被JS引擎解析成 (3.)toString()，显然会出现语法错误。 ​    第二个：相当于(3.).toString()，3. 为浮点数，应">
   
     <link rel="alternate" href="/atom.xml" title="诗之花绪" type="application/atom+xml">
   
@@ -59,8 +61,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
   
   
 
@@ -68,7 +68,7 @@
 
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   
@@ -91,7 +91,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -160,293 +160,137 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><div class="archives-wrap" style="margin: 0px;">
-	<div class="col-lg-10 col-lg-offset-1 col-md-10">
-		<div class="archives-category-wrap">
-			<blockquote>
-			
-			  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Data-type-conversion/">Data type conversion</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Date对象/">Date对象</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Object/">Object</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/js数组/">js数组</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/文件上传/">文件上传</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编辑器插件/">编辑器插件</a><span class="category-list-count">1</span></li></ul>
-			
-			</blockquote>
-		</div>
-		
-		<!-- 分类列表 -->
-
+          <section id="main" style="float:none;"><article id="post-operator" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
         
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="Data type conversion">
-                <h1 class="archive-category">Data type conversion</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2018/08/02/two-type-conversion/" class="archive-article-date">
-	  <time datetime="2018-08-02T03:18:39.428Z" itemprop="datePublished">2018-08-02</time>
-	</a>
-
-      
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/two-type-conversion/">js的隐式数据类型转换规则（二）实践篇</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      toString()的一道题目
     </h1>
   
 
-    </header>
-  </div>
-</article>
-                    
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+      </header>
+    
+    <div class="article-meta">
       
-	<a href="/2018/08/02/one-type-conversion/" class="archive-article-date">
-	  <time datetime="2018-08-02T03:18:39.422Z" itemprop="datePublished">2018-08-02</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/one-type-conversion/">js的隐式数据类型转换规则（一）原理篇</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
-        
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="Date对象">
-                <h1 class="archive-category">Date对象</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2018/08/02/countDown/" class="archive-article-date">
-	  <time datetime="2018-08-02T03:18:39.406Z" itemprop="datePublished">2018-08-02</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/countDown/">js 写一个倒计时函数</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
-        
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="HTML">
-                <h1 class="archive-category">HTML</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2018/08/02/ReplacementElements/" class="archive-article-date">
-	  <time datetime="2018-08-02T03:18:39.425Z" itemprop="datePublished">2018-08-02</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/ReplacementElements/">置换元素</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
-        
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="Object">
-                <h1 class="archive-category">Object</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2018/08/02/operator/" class="archive-article-date">
+	<a href="/2018/08/02/operator/" class="article-date">
 	  <time datetime="2018-08-02T03:18:39.418Z" itemprop="datePublished">2018-08-02</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/operator/">toString()的一道题目</a>
-    </h1>
-  
+    <a class="article-category-link" href="/categories/Object/">Object</a>
 
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
-        
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="git">
-                <h1 class="archive-category">git</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
       
-	<a href="/2018/09/06/gitGettingStart/" class="archive-article-date">
-	  <time datetime="2018-09-06T07:22:56.616Z" itemprop="datePublished">2018-09-06</time>
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
 	</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/09/06/gitGettingStart/">git的常用方法与基本命令</a>
-    </h1>
-  
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.</span>toString()</span><br><span class="line"><span class="number">3.</span>.toString()</span><br><span class="line"><span class="number">3.</span>..toString()</span><br><span class="line"></span><br><span class="line"><span class="comment">//error , 3 ,error</span></span><br></pre></td></tr></table></figure>
+<p>解析：</p>
+<p>​    第一个：点运算符会被优先识别为数字常量的一部分，然后才是对象属性访问符。所以  3.toString() 实际上被JS引擎解析成 (3.)toString()，显然会出现语法错误。</p>
+<p>​    第二个：相当于(3.).toString()，3. 为浮点数，应该是被编译为了对象，所以其实相当于 3.0.toString() == “3”</p>
+<p>​    第三个：原理同一</p>
+<p><a href="https://stackoverflow.com/questions/13149282/why-does-10-tostring-work-but-10-tostring-does-not" target="_blank" rel="noopener">来源于stackoverflow的同样一个问题</a></p>
+<p>​</p>
 
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>xinhong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/08/02/operator/" target="_blank" title="toString()的一道题目">https://shizhihuaxu.github.io/2018/08/02/operator/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
         
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="js数组">
-                <h1 class="archive-category">js数组</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2018/08/02/array-unique/" class="archive-article-date">
-	  <time datetime="2018-08-02T03:18:39.399Z" itemprop="datePublished">2018-08-02</time>
-	</a>
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zODU1MS8xNTA3OQ">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
 
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/array-unique/">数组去重的几种方式</a>
-    </h1>
-  
+		       if (typeof LivereTower === 'function') { return; }
 
-    </header>
-  </div>
-</article>
-                    
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2018/08/02/Array-reduce/" class="archive-article-date">
-	  <time datetime="2018-08-02T03:18:39.398Z" itemprop="datePublished">2018-08-02</time>
-	</a>
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
 
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/Array-reduce/">一段代码统计字符串中重复单词的思考</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
-        
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="文件上传">
-                <h1 class="archive-category">文件上传</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2018/08/02/fileUpload/" class="archive-article-date">
-	  <time datetime="2018-08-02T03:18:39.416Z" itemprop="datePublished">2018-08-02</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/fileUpload/">HTML5+PHP文件上传学习笔记</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
-        
-        <div class="archives-wrap">
-            <div class="archive-year-wrap" id="编辑器插件">
-                <h1 class="archive-category">编辑器插件</h1>
-            </div>
-            <div class="archives">
-                
-                    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2018/08/02/ckeditor/" class="archive-article-date">
-	  <time datetime="2018-08-02T03:18:39.404Z" itemprop="datePublished">2018-08-02</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/ckeditor/">在ThinkPHP5.0.11中使用 CKEditor、CKFinder</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-                    
-                
-            </div>
-        </div>
-        
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
 	</div>
-</div></section>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/08/02/one-type-conversion/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          js的隐式数据类型转换规则（一）原理篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/02/fileUpload/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTML5+PHP文件上传学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav">None</ol>
+    
+    </div>
+  </aside>
+
+</section>
         
       </div>
       
@@ -541,6 +385,8 @@
 
 
 
+  <script src="/js/dialog.js"></script>
+
 
 
 
@@ -624,6 +470,8 @@
   
   <a id="rocket" href="#top" class=""></a>
   <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
   
 </body>
 </html>
