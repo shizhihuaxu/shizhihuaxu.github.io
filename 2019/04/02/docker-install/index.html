@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>在 windows 上使用 docker | 诗之花绪</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Docker 基础" />
+  
+  
+  
+  
+  <meta name="description" content="Part 1: 检查计算机是否可以使用 Docker Desktop for Windows如果计算机符合以下所有要求，则可以使用 Docker Desktop for Windows，否则需要安装 Docker Toolbox。  win10 专业版、企业版或教育版 64位操作系统(1607 Anniversary Update, Build 14393 or later) 至少 4GB 的RA">
+<meta name="keywords" content="Docker 基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Windows 上使用 Docker">
+<meta property="og:url" content="https://shizhihuaxu.github.io/2019/04/02/docker-install/index.html">
+<meta property="og:site_name" content="诗之花绪">
+<meta property="og:description" content="Part 1: 检查计算机是否可以使用 Docker Desktop for Windows如果计算机符合以下所有要求，则可以使用 Docker Desktop for Windows，否则需要安装 Docker Toolbox。  win10 专业版、企业版或教育版 64位操作系统(1607 Anniversary Update, Build 14393 or later) 至少 4GB 的RA">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-03T02:59:22.097Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在 Windows 上使用 Docker">
+<meta name="twitter:description" content="Part 1: 检查计算机是否可以使用 Docker Desktop for Windows如果计算机符合以下所有要求，则可以使用 Docker Desktop for Windows，否则需要安装 Docker Toolbox。  win10 专业版、企业版或教育版 64位操作系统(1607 Anniversary Update, Build 14393 or later) 至少 4GB 的RA">
+  
+    <link rel="alternate" href="/atom.xml" title="诗之花绪" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-docker-install" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      在 Windows 上使用 Docker
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/04/02/docker-install/" class="article-date">
+	  <time datetime="2019-04-02T03:07:44.681Z" itemprop="datePublished">2019-04-02</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Docker/">Docker</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Part-1-检查计算机是否可以使用-Docker-Desktop-for-Windows"><a href="#Part-1-检查计算机是否可以使用-Docker-Desktop-for-Windows" class="headerlink" title="Part 1: 检查计算机是否可以使用 Docker Desktop for Windows"></a>Part 1: 检查计算机是否可以使用 Docker Desktop for Windows</h1><p>如果计算机符合以下所有要求，则可以使用 Docker Desktop for Windows，否则需要安装 Docker Toolbox。</p>
+<ol>
+<li>win10 专业版、企业版或教育版 64位操作系统(1607 Anniversary Update, Build 14393 or later)</li>
+<li>至少 4GB 的RAM</li>
+<li>CPU SLAT(Second Level Address Translation)-capable 特性</li>
+<li>BIOS  中启用虚拟化</li>
+</ol>
+<h2 id="如何查看系统信息"><a href="#如何查看系统信息" class="headerlink" title="如何查看系统信息"></a>如何查看系统信息</h2><p>控制面板 -&gt; 系统和安全 -&gt; 系统 即可查看Windows 版本、内存和处理器版本。</p>
+<h2 id="如何检查CPU-是否支持-SLAT-特性"><a href="#如何检查CPU-是否支持-SLAT-特性" class="headerlink" title="如何检查CPU 是否支持 SLAT 特性"></a>如何检查CPU 是否支持 SLAT 特性</h2><p>这里是一篇来自于Dawa Law博客的文章<a href="http://dawalaw.com/2013/how-to-check-for-slat-capable-cpu/" target="_blank" rel="noopener">How to Check for SLAT Capable CPU</a></p>
+<p>翻译为如下步骤：</p>
+<ol>
+<li>依然是在控制面板中的系统信息中查看处理器版本</li>
+<li>如果是 Intel 处理器，请在<a href="https://ark.intel.com/content/www/us/en/ark.html" target="_blank" rel="noopener">这里</a>找到自己的 CPU，如果是 AMD ，请看<a href="https://www.amd.com/en/products/specifications/processors" target="_blank" rel="noopener">这里</a></li>
+<li>选点击 CPU 名称进入详情页。如果是 Intel ，请查看 <strong>Intel® VT-x with Extended Page Tables (EPT)</strong> 选项，为 Yes 表示支持。如果为 AMD ,请查看 <strong>AMD Virtualization Technology</strong> 选项，为 Yes 表示支持。</li>
+</ol>
+<h2 id="如何查看是否启用虚拟化"><a href="#如何查看是否启用虚拟化" class="headerlink" title="如何查看是否启用虚拟化"></a>如何查看是否启用虚拟化</h2><p>ctrl + alt + delete 打开任务管理器，在性能选项页可以看到虚拟化这项描述。</p>
+<h1 id="Part-2-使用-Docker-Desktop-for-Windows"><a href="#Part-2-使用-Docker-Desktop-for-Windows" class="headerlink" title="Part 2: 使用 Docker Desktop for Windows"></a>Part 2: 使用 Docker Desktop for Windows</h1><ol>
+<li><p>下载。</p>
+<p><a href="https://docs.docker.com/docker-for-windows/install/" target="_blank" rel="noopener">Docker Desktop for Windows下载地址</a>，在 Install Docker Desktop for Windows desktop app 标题下的描述部分有一个 “download.docker.com” 链接地址，点击即可直接下载。</p>
+</li>
+<li><p>在 BIOS 中开启虚拟化。</p>
+<p>开始菜单  -&gt;  设置  -&gt;  更新和安全  -&gt;  恢复  -&gt; 立即重启  -&gt;  疑难解答  -&gt;  高级选项  -&gt; UFFI设置  -&gt;  Intel Virtual Technology  -&gt;  启用</p>
+</li>
+<li><p>开始 Hyper-V 服务。</p>
+<p>右键windows图标  -&gt;  应用和功能  -&gt;  相关设置 程序和功能   -&gt;  启用或关闭windows 功能  -&gt;  勾选Hyper-V所有内容</p>
+<p>​    或</p>
+<p>或以管理员身份运行 CMD , 输入以下命令, 在任务管理器 -&gt; 性能 页面查看是否成功启用虚拟化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="4">
+<li><p>设置国内镜像源。</p>
+<p>任务栏 Docker 图标  -&gt;  右键   -&gt;  settings  -&gt;  Daemon  -&gt;  registry mirrors 输入国内镜像源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://registry.docker-cn.com</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="5">
+<li><p>设置共享磁盘。</p>
+<p>settings  -&gt; shared drives 勾选要共享的磁盘 ，可能会提示输入用户名密码，输入操作用户的账号密码。</p>
+</li>
+<li><p>重置镜像存储位置。</p>
+<p>settings  -&gt;  advanced  -&gt;  disk image location 选择一个文件夹。</p>
+</li>
+</ol>
+<h1 id="Part-3-使用-Docker-Toolbox"><a href="#Part-3-使用-Docker-Toolbox" class="headerlink" title="Part 3: 使用 Docker Toolbox"></a>Part 3: 使用 Docker Toolbox</h1><ol>
+<li><p>下载。</p>
+<p><a href="https://docs.docker.com/toolbox/toolbox_install_windows/" target="_blank" rel="noopener">Docker Toolbox 下载地址</a></p>
+</li>
+<li><p>在 BIOS 中开启虚拟化。</p>
+</li>
+<li><p>开启 Hyper-V 服务。</p>
+</li>
+<li><p>启动安装程序，如果安装过 git 那么取消勾选 git for windows。</p>
+</li>
+<li><p>双击 Docker Quickstart Terminal 启动服务，提示查找 bash.exe。</p>
+<p>​    由于我们没有选择安装git ，这是由于快捷方式所指向的路径有问题，指向的目标是 git\bin\bash.exe，修改为正确的地址后即可正常打开。</p>
+<p>​    右键quickstart图标 -&gt; 属性 -&gt; 目标 输入你的 git bash.exe 路径，例如：D:\git\bin\bash.exe -&gt; 应用</p>
+</li>
+<li><p>手动安装 boot2docker.iso。</p>
+<p>配置正确 bash 路径后双击 quick start 会出现download boot2docker.iso 但是这样下载比较慢，可以直接到 <a href="https://github.com/boot2docker/boot2docker/releases/" target="_blank" rel="noopener">github 上</a>下载<strong>与提示版本相对应</strong>的boot2docker.iso文件放入提示中的目标文件夹 C:\Users\用户名/\.docker\machine\cache文件夹下</p>
+</li>
+<li><p>测试安装成功。</p>
+<p>运行 docker run hello-world 出现 Unable to find image ‘hello-world:latest’ locally… 即为安装成功。</p>
+</li>
+<li><p>设置国内镜像源。</p>
+<p><a href="https://www.docker-cn.com/registry-mirror" target="_blank" rel="noopener">Docker 中文文档</a>提供了设置国内镜像的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">方法一：拉取时指定镜像地址</span><br><span class="line">$ docker pull registry.docker-cn.com/myname/myrepo:mytag</span><br><span class="line"></span><br><span class="line">方法二：Docker 守护进程启动时传入 --registry-mirror 参数</span><br><span class="line">$ docker --registry-mirror=https://registry.docker-cn.com daemon</span><br><span class="line"></span><br><span class="line">方法三：永久保存--registry-mirror 参数的配置</span><br><span class="line">在 docker.exe 同级文件夹创建 /etc/docker/daemon.json，并写入</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">保存重启 Docker 后生效</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="9">
+<li><p>更改docker 镜像的默认存储位置</p>
+<p>默认情况下，docker-machine创建的虚拟机文件，是保存在C盘的C:\Users\用户名\docker\machine\machines\default 目录下的，如果下载和使用的镜像过多，那么必然导致该文件夹膨胀过大。具体操作如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.使用 docker-machine stop default 停掉Docker的虚拟机。</span><br><span class="line"></span><br><span class="line">2.打开 VirtualBox UI，选择 “全局工具” 下的 “虚拟介质管理”，我们可以看到Docker虚拟机用的虚拟硬盘的文件disk.vmdk。</span><br><span class="line"></span><br><span class="line">3.选中“disk”，然后点击菜单中的“复制”命令，注意不要直接复制粘贴，根据向导，把当前的disk复制到另一个盘上面去。复制时文件类型选择默认VDI，动态分配，目标文件夹。</span><br><span class="line"></span><br><span class="line">4.点击 “虚拟电脑工具” 回到 VirtualBox 主界面，右键 “default” 这个虚拟机，选择 “设置” 命令，在弹出的窗口中选择 “存储” 选项。</span><br><span class="line"></span><br><span class="line">5.把disk.vmdk从“控制器SATA”中右键删除，然后右上角重新添加“虚拟硬盘”我们刚才复制到另外一个磁盘上的那个文件。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="10">
+<li><p>设置共享磁盘</p>
+<p>​    如果您的项目位于其他地方，或者需要访问主机文件系统上的其他目录，您可以使用VirtualBox UI添加它们。</p>
+<p>​    设置 -&gt; 共享文件夹-&gt; 点击加号图标-&gt; 选择一个文件夹-&gt;选择自动挂载、固定分配。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>xinhong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/04/02/docker-install/" target="_blank" title="在 Windows 上使用 Docker">https://shizhihuaxu.github.io/2019/04/02/docker-install/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8zODU1MS8xNTA3OQ">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/27/line-height/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1-检查计算机是否可以使用-Docker-Desktop-for-Windows"><span class="nav-number">1.</span> <span class="nav-text">Part 1: 检查计算机是否可以使用 Docker Desktop for Windows</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何查看系统信息"><span class="nav-number">1.1.</span> <span class="nav-text">如何查看系统信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何检查CPU-是否支持-SLAT-特性"><span class="nav-number">1.2.</span> <span class="nav-text">如何检查CPU 是否支持 SLAT 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何查看是否启用虚拟化"><span class="nav-number">1.3.</span> <span class="nav-text">如何查看是否启用虚拟化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2-使用-Docker-Desktop-for-Windows"><span class="nav-number">2.</span> <span class="nav-text">Part 2: 使用 Docker Desktop for Windows</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-3-使用-Docker-Toolbox"><span class="nav-number">3.</span> <span class="nav-text">Part 3: 使用 Docker Toolbox</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2019 诗之花绪 All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1274332182&web_id=1274332182" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            诗之花绪
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 xinhong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
